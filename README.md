@@ -1,16 +1,9 @@
 # tgg-amap
 
 近期地图的项目较多, 采用高德地图amap, 对其二次封装, 方便后期复用
-
-## Install
-    # with npm
-    npm install tgg-amap
-    # with yarn
-    yarn add tgg-amap
-
 ## key和安全密钥的使用
-### （自2021年12月02日升级，升级之后所申请的 key 必须配备安全密钥 jscode 一起使用)
-
+#### （自2021年12月02日升级，升级之后所申请的 key 必须配备安全密钥 jscode 一起使用)
+<br>
     <script type="text/javascript">
       window._AMapSecurityConfig = {
           securityJsCode:'您申请的安全密钥',
@@ -19,6 +12,13 @@
       }
     </script>
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值"></script> 
+
+## Install
+    # with npm
+    npm install tgg-amap
+    # with yarn
+    yarn add tgg-amap
+
 
 ## Props
 
