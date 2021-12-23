@@ -2,8 +2,8 @@
 
 近期地图的项目较多, 采用高德地图amap, 对其二次封装, 方便后期复用
 ## key和安全密钥的使用
-#### （自2021年12月02日升级，升级之后所申请的 key 必须配备安全密钥 jscode 一起使用)
-<br>
+（自2021年12月02日升级，升级之后所申请的 key 必须配备安全密钥 jscode 一起使用)
+
     <script type="text/javascript">
       window._AMapSecurityConfig = {
           securityJsCode:'您申请的安全密钥',
