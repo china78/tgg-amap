@@ -8,6 +8,18 @@
     # with yarn
     yarn add tgg-amap
 
+## key和安全密钥的使用
+### （自2021年12月02日升级，升级之后所申请的 key 必须配备安全密钥 jscode 一起使用)
+
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+          securityJsCode:'您申请的安全密钥',
+          serviceHost:'您的代理服务器域名或地址/_AMapService',  
+          // 例如 ：serviceHost:'http://1.1.1.1:80/_AMapService',
+      }
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值"></script> 
+
 ## Props
 
 props 配置 config 对象

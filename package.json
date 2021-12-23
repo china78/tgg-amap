@@ -1,7 +1,7 @@
 {
   "name": "tgg-amap",
   "version": "1.0.2",
-  "description": "高德地图的二次风封装",
+  "description": "高德地图的二次封装",
   "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
