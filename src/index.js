@@ -1,21 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Props {
-  config?: {
-    polygon: {
-      show: Boolean;
-      value: string;
-    }
-  };
-}
-const TggAMap = (props: Props) => {
+// interface Props {
+//   config?: {
+//     polygon: {
+//       show: Boolean;
+//       value: string;
+//     }
+//   };
+// }
+const TggAMap = (props) => {
   const { config = {} } = props;
-  const { polygon = {} } = config as any;
+  const { polygon = {} } = config;
   const { show = false, value = '' } = polygon;
   const mapRef = useRef(null);
   const DISTRICT = 'district';
 
-  function initMap(ref: any) {
+  function initMap(ref) {
     const map = new AMap.Map(ref.current, {
       resizeEnable: true,
       zoom: 11,
@@ -25,16 +25,16 @@ const TggAMap = (props: Props) => {
       map.plugin(["AMap.DistrictSearch", "AMap.Polygon"], () => drawBounds(map));
     }
   }
-  function drawBounds(map: any) {
+  function drawBounds(map) {
     const opts = {
       subdistrict: 0,
       extensions: 'all',
       level: DISTRICT
     }
     const district = new AMap.DistrictSearch(opts);
-    const polygons: any = [];
+    const polygons = [];
     district.setLevel(DISTRICT);
-    district.search(value, (status: any, result: any) => {
+    district.search(value, (status, result) => {
       const bounds = result.districtList[0].boundaries;
       if (bounds) {
         for (let i = 0, l = bounds.length; i < l; i++) {
