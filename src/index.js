@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 
 // interface Props {
 //   config?: {
@@ -55,11 +55,11 @@ const TggAMap = (props) => {
 
   useEffect(() => {
     initMap(mapRef);
-  }, []);
+  }, [props]);
 
   return (
     <div ref={mapRef} style={{ width: '100%', height: '100%' }}></div>
   )
 }
 
-export default TggAMap;
+export default memo(TggAMap);
