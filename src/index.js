@@ -15,16 +15,14 @@ const Amap = (props) => {
       center: [120.210792, 30.246026], // 地图中心点-变量
     });
     if (polygon.show) {
-      map.plugin(["AMap.DistrictSearch", "AMap.Polygon", "AMap.Marker"], () => drawBounds(map));
+      map.plugin(["AMap.DistrictSearch", "AMap.Polygon"], () => drawBounds(map));
     }
     if (points.show) {
       map.plugin(["AMap.Marker"], () => drawPoints(map));
     }
   }
   function drawPoints(map) {
-    console.log('point1: ', point)
     points.data.forEach((point) => {
-      console.log('point2: ', point)
       let m = new AMap.Marker({
         position: [point[0], point[1]]
       });
