@@ -1,6 +1,6 @@
 {
   "name": "tgg-amap",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "高德地图的二次封装",
   "main": "lib/index.js",
   "scripts": {
