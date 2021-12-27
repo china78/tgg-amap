@@ -6,11 +6,12 @@ import React, { useEffect, useRef, memo } from 'react';
 //       show: Boolean;
 //       value: string;
 //     }
+// points: any[];
 //   };
 // }
 const TggAMap = (props) => {
   const { config = {} } = props;
-  const { polygon = {} } = config;
+  const { polygon = {}, points = {} } = config;
   const { show = false, value = '' } = polygon;
   const mapRef = useRef(null);
   const DISTRICT = 'district';
@@ -24,6 +25,18 @@ const TggAMap = (props) => {
     if (show) {
       map.plugin(["AMap.DistrictSearch", "AMap.Polygon"], () => drawBounds(map));
     }
+    if (points.show) {
+      map.plugin(["AMap.Marker"], () => drawPoints(map));
+    }
+  }
+  function drawPoints(map) {
+    points.data.forEach((point) => {
+      let m = new AMap.Marker({
+        position: [point[0], point[1]]
+      });
+      map.add(m);
+      map.setFitView();
+    });
   }
   function drawBounds(map) {
     const opts = {
