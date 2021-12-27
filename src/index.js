@@ -1,17 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-// interface Props {
-//   config?: {
-//     polygon: {
-//       show: Boolean;
-//       value?: string;
-//     };
-//     points: {
-//       show: Boolean;
-//       data: any[];
-//     };
-//   };
-// }
 const Amap = (props) => {
   const { config = {} } = props;
   const { polygon = {}, points = {} } = config;
