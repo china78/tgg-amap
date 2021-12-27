@@ -1,29 +1,33 @@
-import React, { useEffect, useRef, memo } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // interface Props {
 //   config?: {
 //     polygon: {
 //       show: Boolean;
-//       value: string;
-//     }
-// points: any[];
+//       value?: string;
+//     };
+//     points: {
+//       show: Boolean;
+//       data: any[];
+//     };
 //   };
 // }
-const TggAMap = (props) => {
+const Amap = (props) => {
   const { config = {} } = props;
   const { polygon = {}, points = {} } = config;
-  const { show = false, value = '' } = polygon;
+  const { value = '' } = polygon;
   const mapRef = useRef(null);
   const DISTRICT = 'district';
 
+  let map;
   function initMap(ref) {
-    const map = new AMap.Map(ref.current, {
+    map = new AMap.Map(ref.current, {
       resizeEnable: true,
       zoom: 11,
       center: [120.210792, 30.246026], // 地图中心点-变量
     });
-    if (show) {
-      map.plugin(["AMap.DistrictSearch", "AMap.Polygon"], () => drawBounds(map));
+    if (polygon.show) {
+      map.plugin(["AMap.DistrictSearch", "AMap.Polygon", "AMap.Marker"], () => drawBounds(map));
     }
     if (points.show) {
       map.plugin(["AMap.Marker"], () => drawPoints(map));
@@ -47,7 +51,7 @@ const TggAMap = (props) => {
     const district = new AMap.DistrictSearch(opts);
     const polygons = [];
     district.setLevel(DISTRICT);
-    district.search(value, (status, result) => {
+    district.search(value, (statusy, result) => {
       const bounds = result.districtList[0].boundaries;
       if (bounds) {
         for (let i = 0, l = bounds.length; i < l; i++) {
@@ -75,4 +79,4 @@ const TggAMap = (props) => {
   )
 }
 
-export default memo(TggAMap);
+export default Amap;
