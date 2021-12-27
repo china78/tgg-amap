@@ -34,7 +34,9 @@ const Amap = (props) => {
     }
   }
   function drawPoints(map) {
+    console.log('point1: ', point)
     points.data.forEach((point) => {
+      console.log('point2: ', point)
       let m = new AMap.Marker({
         position: [point[0], point[1]]
       });
